@@ -1,0 +1,1 @@
+Welcome to my first attempt at coding a project. For this project I have coded a memory game using basic HTML, CSS and Javascript. I kept the game style simple. At the time this was created I was more concerned with perfecting the code to work. I will update the style as I progress through the course. Enjoy!
