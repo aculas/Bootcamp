@@ -1,0 +1,134 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-image: url("images/mountain.jpg");
+  background-repeat: no-repeat;
+  background-size:145%
+  /* background-color: rgb(0, 193, 252); */
+}
+
+#game div {
+  border-radius: 10px;
+  width: 23%;
+  height: 180px;
+  margin: .5%;
+  display: inline-block;
+}
+
+h1{
+  /* padding: 20px 0 0; */
+  margin: 10px auto 0;
+  border-radius: 10px 10px 0 0;
+}
+h3{
+  display: inline-block;
+  margin: 0 20px;
+}
+button{
+  padding: 5px;
+  margin: 10px;
+  font-size: 1rem;
+  color: rgb(233, 173, 10);
+  background: #111;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+button:hover{
+  color: rgb(63, 107, 151);
+}
+
+.controls{
+  border-radius: 0 0 10px 10px;
+  margin: 0 auto 15px;
+}
+
+h1, p, .keeper, .controls{
+  font-family: 'Black Ops One', cursive;
+  text-align: center;
+  color: #eee;
+  background: #000000;
+  width: 90%;
+  max-width: 800px;
+}
+
+p, .keeper{
+  margin: 0 auto;
+}
+
+ .container{
+  width: 95%;
+  max-width: 800px;
+  margin: 0 auto;
+} 
+
+
+.row{
+text-align: center;
+
+}
+
+.card{
+display: inline-block;
+width: 195px;
+height: 175px;
+background-color: rgb(190, 190, 190);
+cursor: pointer;
+}
+
+.card.done{
+  cursor: default;
+}
+
+.card.done:hover{
+  cursor: default;
+  box-shadow: none;
+}
+
+.card:hover {
+  border: black;
+box-shadow: 0px 0px 0px 1px rgb(0, 0, 0);
+box-sizing: border-box;
+}
+
+.red{
+  background: red;
+  background-size:  contain;
+}
+.blue{
+  background: blue;
+  background-size:  contain;
+}
+.green{
+  background: green;
+  background-size:  contain;
+}
+.orange{
+  background: orange;
+  background-size:  contain;
+}
+.purple{
+  background: purple;
+  background-size:  contain;
+}
+.pink{
+  background: pink;
+  background-size:  contain;
+}
+.teal{
+  background: teal;
+  background-size:  contain;
+}
+.yellow{
+  background: yellow;
+  background-size:  contain;
+}
+
+.color-hidden{
+  background-color: grey;
+}
