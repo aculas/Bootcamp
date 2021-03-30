@@ -28,7 +28,7 @@ function setupIntialValues() {
   yearsUI.value = values.years;
   const rateUI = document.getElementById("loan-rate");//Inputs from DOM
   rateUI.value = values.rate;
-  update();//Callback function
+  update();//Callback function to the submitted value in the form
 }
 
 
@@ -43,9 +43,17 @@ function update() {
 // calculate the monthly payment.  The output should be a string
 // that always has 2 decimal places.
 function calculateMonthlyPayment(values) {
+  const monthlyRate = (values.rate / 100) / 12;
+  const num = Math.floor(values.years * 12);
+  return (
+    (monthlyRate * values.amount) /
+    (1 - Math.pow((1 + montlyRate), -num))
+  ).toFixed(2);
 }
 
 // Given a string representing the monthly payment value,
 // update the UI to show the value.
 function updateMonthly(monthly) {
+  const monthlyUI = document.getElementById("monthly-payment"); // Stores the string that represents the monthly payment value in a variable.
+  monthlyUI.innerText = "$" + monthly; //Updates the UI to the innerText value
 }
