@@ -47,7 +47,7 @@ function calculateMonthlyPayment(values) {
   const num = Math.floor(values.years * 12);
   return (
     (monthlyRate * values.amount) /
-    (1 - Math.pow((1 + montlyRate), -num))
+    (1 - Math.pow((1 + monthlyRate), -num))
   ).toFixed(2);
 }
 
