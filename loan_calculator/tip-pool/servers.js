@@ -1,8 +1,10 @@
+
+//Sets up the initial elements in a variable
 let serverNameInput = document.getElementById('serverName');
 let serverForm = document.getElementById('serverForm');
 
 let serverTbody = document.querySelector('#serverTable tbody');
-
+//Sests up an empty object and an empty number for server table
 let allServers = {};
 let serverId = 0;
 
@@ -38,6 +40,7 @@ function updateServerTable() {
 
     appendTd(newTr, curServer.serverName);
     appendTd(newTr, '$' + tipAverage.toFixed(2));
+    appendDeleteBtn(newTr, 'server');
 
     serverTbody.append(newTr);
   }

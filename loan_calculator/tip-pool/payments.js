@@ -1,10 +1,11 @@
+//Sets up initial values
 let billAmtInput = document.getElementById('billAmt');
 let tipAmtInput = document.getElementById('tipAmt');
 let paymentForm = document.getElementById('paymentForm');
 
 let paymentTbody = document.querySelector('#paymentTable tbody');
 let summaryTds = document.querySelectorAll('#summaryTable tbody tr td');
-
+//Sets up empty object for payment and a num value for payment id.
 let allPayments = {};
 let paymentId = 0;
 
@@ -54,23 +55,15 @@ function appendPaymentTable(curPayment) {
 
   appendTd(newTr, '$' + curPayment.billAmt);
   appendTd(newTr, '$' + curPayment.tipAmt);
-  appendTd(newTr, curPayment.tipPercent + '%');
+  appendTd(newTr, '%' + curPayment.tipPercent);
 
   paymentTbody.append(newTr);
 }
 
 // Create table row element and pass to appendTd with calculated sum of all payment
 function updateSummary() {
-  let tipPercentAvg;
-  let paymentTotal = sumPaymentTotal('tipPercent');
-  let numberOfPayments = Object.keys(allPayments).length;
-
-  if (paymentTotal === 0 && numberOfPayments === 0) {
-    tipPercentAvg = 0;
-  } else {
-    tipPercentAvg = paymentTotal / Object.keys(allPayments).length;
-  }
-
+  let tipPercentAvg = sumPaymentTotal('tipPercent') / Object.keys(allPayments).length;
+  
   summaryTds[0].innerHTML = '$' + sumPaymentTotal('billAmt');
   summaryTds[1].innerHTML = '$' + sumPaymentTotal('tipAmt');
   summaryTds[2].innerHTML =  Math.round(tipPercentAvg) + '%';
