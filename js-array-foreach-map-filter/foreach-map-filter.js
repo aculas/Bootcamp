@@ -14,7 +14,6 @@ function doubleValues(arr) {
     }); 
     return newArr;
 }
-console.log(doubleValues([1,2,3,4]));
 /*
 Write a function called onlyEvenValues which accepts an array and returns a new array with only the even values in the array passed to the function
 
@@ -31,7 +30,6 @@ function onlyEvenValues(arr) {
         }
         return newArr;//Returns new array
 });
-console.log(onlyEvenValues([1,2,3,4]));
 /*
 Write a function called showFirstAndLast which accepts an array of strings and returns a new array with only the first and last character of each string.
 
@@ -46,7 +44,6 @@ function showFirstAndLast(arr) {
     });
     return newArr;//Returns new array
 }
-console.log(showFirstAndLast(['colt','matt', 'tim', 'udemy']));
 /*
 
 Write a function called addKeyAndValue which accepts an array of objects, a key, and a value and returns the array passed to the function with the new key and value added for each object 
@@ -63,8 +60,6 @@ function addKeyAndValue(arr, key, value) {
     });
     return arr;//Returns new array
 }
-console.log(addKeyAndValue([{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}], 'title', 'instructor'));
-
 /*
 Write a function called vowelCount which accepts a string and returns an object with the keys as the vowel and the values as the number of times the vowel appears in the string. This function should be case insensitive so a lowercase letter and uppercase letter should count
 
@@ -92,9 +87,9 @@ function vowelCount(str){
       });
       return obj; //Returns object
     }
-   
+    
 }
-console.log(vowelCount('Matt'));
+
 /*
 Write a function called doubleValuesWithMap which accepts an array and returns a new array with all the values in the array passed to the function doubled
 
@@ -107,8 +102,9 @@ function doubleValuesWithMap(arr) {
         return arr.map(function(val) {//creates and returns a new array using the map() method and uses val as a parameter
             return val * 2;//Pushes val into newArr and multiplies val * 2
         }); 
+
 }
-console.log(doubleValuesWithMap([1,2,3,4]));
+
 
 /*
 Write a function called valTimesIndex which accepts an array and returns a new array with each value multiplied by the index it is currently at in the array.
@@ -121,10 +117,7 @@ Examples:
 function valTimesIndex(arr){
     return arr.map(function(val, idx) {//creates and returns a new array using the map() method and uses val and ind as parameters
         return val * idx;//Returns a new array using the val and multiplying it times the index
-    })
-    
-
-
+    });
 }
 
 /*
@@ -137,7 +130,7 @@ Examples:
 function extractKey(arr, key){
     return arr.map(function(val) {//Creates and returns a new array using the map() method and uses val and key as parameters
         return val[key];//Returns a new array using the object key 
-    })
+    });
     
 }
 
@@ -165,6 +158,7 @@ Examples:
 function filterByValue(arr, key) {
     return arr.filter(function(val) {//Creates and returns a new array using the filter() method and uses arr and key as parameters
         return val[key] !== undefined;//Returns a new array array of objects and a key and returns a new array with all the objects that contain that key.
+});
 }
 
 /*
@@ -206,11 +200,16 @@ Examples:
 */
 
 function removeVowels(str) {
-
-
-
-
-}
+    const vowels = "aeiou";
+    return str
+      .toLowerCase()
+      .split("")
+      .filter(function(val) {
+        return vowels.indexOf(val) === -1;
+      })
+      .join("");
+  }
+  
 
 /*
 Write a function called doubleOddNumbers which accepts an array and returns a new array with all of the odd numbers doubled (HINT - you can use map and filter to double and then filter the odd numbers).
@@ -221,7 +220,11 @@ Examples:
 */
 
 function doubleOddNumbers(arr) {
-
-
-
-}
+    return arr
+      .filter(function(val) {
+        return val % 2 !== 0;
+      })
+      .map(function(val) {
+        return val * 2;
+      });
+    }
