@@ -155,8 +155,8 @@ Examples:
     filterByValue([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner') // [{first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Colt', last:"Steele", isCatOwner: true}]
 */
 
-function filterByValue(arr, key) {
-    return arr.filter(function(val) {//Creates and returns a new array using the filter() method and uses arr and key as parameters
+function filterByValue(arr, key) { 
+    return arr.filter(function(val) {////This is a callback function that if it returns true, the value will ne pushed to the new array and uses arr and key as parameters
         return val[key] !== undefined;//Returns a new array array of objects and a key and returns a new array with all the objects that contain that key.
 });
 }
@@ -171,9 +171,9 @@ Examples:
 
 
 function find(arr, searchValue){
-    return arr.filter(function(val) {
-        return val === searchValue;
-      })[0];
+    return arr.filter(function(val) {//This is a callback function that if it returns true, the value will ne pushed to the new array
+        return val === searchValue;//This tales the value entered and determines if it is a strict equality to the search value
+      })[0];//This creates an array with 0 which will return undefined
 
 }
   
@@ -185,9 +185,10 @@ Examples:
 */
 
 function findInObj(arr, key, searchValue) {
-    return arr.filter(function(val) {
-      return val[key] === searchValue;
-    })[0];
+    return arr.filter(function(val) { //This is a callback function that if it returns true, the value will ne pushed to the new array
+      return val[key] === searchValue;//This tales the value entered and determines if it is a strict equality to the search value
+    })[0]; //This creates an array with 0 which will return undefined
+
   }
 
 /*
@@ -200,14 +201,14 @@ Examples:
 */
 
 function removeVowels(str) {
-    const vowels = "aeiou";
-    return str
+    const vowels = "aeiou";// Sets up the starter variables
+    return str//Returns the str value and uses 3 separate methods with a callback function to return the index of vowels
       .toLowerCase()
       .split("")
       .filter(function(val) {
         return vowels.indexOf(val) === -1;
       })
-      .join("");
+      .join(""); //The join() method creates and returns a new string by concatenating all of the elements in an array 
   }
   
 
@@ -221,10 +222,10 @@ Examples:
 
 function doubleOddNumbers(arr) {
     return arr
-      .filter(function(val) {
-        return val % 2 !== 0;
+      .filter(function(val) {//This is a callback function that if it returns true, the value will ne pushed to the new array
+        return val % 2 !== 0;////Boolean operator that uses modulus/remainder of 2 does not equal 0
       })
-      .map(function(val) {
+      .map(function(val) {//used the map() method to transform the array into another array, returns the val assigned and multiplies it by 2
         return val * 2;
       });
     }
