@@ -7,9 +7,12 @@ Examples:
 */
 
 function extractValue(arr, key) {
-
-
+    return arr.reduce(function(acc, names ){
+        acc.push(names[key]);
+        return acc;
+    }, [] );
 }
+
 
 /*
 Write a function called vowelCount which accepts a string and returns an object with the keys as the vowel and the values as the number of times the vowel appears in the string. This function should be case insensitive so a lowercase letter and uppercase letter should count
@@ -22,10 +25,20 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 
-function vowelCount(str) {
-
-
-}
+function vowelCount(str){
+    const vowels = "aeiou";
+    return str.split('').reduce(function(acc,next){
+        let lowerCased = next.toLowerCase()
+        if(vowels.indexOf(lowerCased) !== -1){
+            if(acc[lowerCased]){
+                acc[lowerCased]++;
+            } else {
+                acc[lowerCased] = 1;
+            }
+        }
+        return acc;
+    }, {});
+} 
 
 /*
 Write a function called addKeyAndValue which accepts an array of objects and returns the array of objects passed to it with each object now including the key and value passed to the function.
@@ -43,10 +56,11 @@ Examples:
 */
 
 function addKeyAndValue(arr, key, value) {
-
-
-
-
+return arr.reduce(function(accum, val){
+    val[key] = value;
+    accum = accum.concat(val);
+    return accum;
+    }, []);
 }
 
 /*
@@ -71,9 +85,13 @@ Examples:
     partition(names, isLongerThanThreeCharacters) // [['Elie', 'Colt', 'Matt'], ['Tim']]
 */
 
-function partition(arr, callback) {
-
-
-
-    
+function partition(arr, callback){
+    return arr.reduce(function(accum,value) {
+		if (callback(value)){
+			accum[0] = accum[0].concat(value);
+			} else {
+			    accum[1] = accum[1].concat(value);
+            }
+			return accum;
+	},[[],[]]);
 }
