@@ -5,7 +5,7 @@
  * board fills (tie)
  */
 
-const WIDTH = 7;//Renamed variables to align with 
+const WIDTH = 7;//Renamed variables to be updated to the ES2015 style
 const  HEIGHT = 6;
 
 let  currPlayer = 1; // active player: 1 or 2
@@ -15,16 +15,10 @@ let  board = []; // array of rows, each row is array of cells  (board[y][x])
  *    board = array of rows, each row is array of cells  (board[y][x])
  */
 
-function makeBoard() {
-  let row = []; //sets a empty starter array for a row
-  for(let i =0; i < WIDTH; i ++){
-   row.push(null);
+ function makeBoard() {
+  for (let i = 0; i < HEIGHT; y++) {//standard for lopp to create the board
+    board.push(Array.from({ length: WIDTH }));//takes the emtpy array above and creates an new, shallow-copied array
   }
-  for(let i =0; i < HEIGHT; i ++){
-    board.push(Array.from(row));
-   }
- board.unshift();
-
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
@@ -32,21 +26,21 @@ function makeBoard() {
 function makeHtmlBoard() {
   // Sets "htmlBoard" variable from the item in HTML w/ID of "board"
   const htmlBoard = document.getElementById ('board');
-  // TODO: add comment for this code
   const top = document.createElement("tr");// Sets a variable for the top row using the ID of "tr"
-  top.setAttribute("id", "column-top");
-  top.addEventListener("click", handleClick);
+  top.setAttribute("id", "column-top");//sets the attributes form the new top row created
+  top.addEventListener("click", handleClick);//uses an event listener function when a user clicks at the top
 //Creates datacells in a top row and stores them in a variable using the id of "td"
   for (let x = 0; x < WIDTH; x++) {
-    let headCell = document.createElement("td");
+    let headCell = document.createElement("td");//creates and inital head cell
     headCell.setAttribute("id", x);//sets the attribute for the new cells
-    top.append(headCell);
+    top.append(headCell);//appends to headCell and creates a child element
   }
-  htmlBoard.append(top);
+  htmlBoard.append(top);//appends to top row "tr"
 
-  // TODO: add comment for this code
+  // This creates the main part of the board
   for (let y = 0; y < HEIGHT; y++) {
     const row = document.createElement("tr");
+
     for (let x = 0; x < WIDTH; x++) {
       const cell = document.createElement("td");
       cell.setAttribute("id", `${y}-${x}`);
@@ -59,20 +53,30 @@ function makeHtmlBoard() {
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 
 function findSpotForCol(x) {
-  // TODO: write the real version of this, rather than always returning 0
-  return 0;
+  for (let i = HEIGHT - 1; i >= 0; i--) {
+    if (!board[y][x]) {
+      return y;
+    }
+  }
+  return null;
 }
 
 /** placeInTable: update DOM to place piece into HTML table of board */
 
 function placeInTable(y, x) {
-  // TODO: make a div and insert into correct table cell
+  const piece = document.createElement('div');
+  piece.classList.add('piece');
+  piece.classList.add(`p${currPlayer}`);
+  piece.style.top = -50 * (y + 2);
+
+  const spot = document.getElementById(`${y}-${x}`);
+  spot.append(piece);
 }
 
 /** endGame: announce game end */
 
 function endGame(msg) {
-  // TODO: pop up alert message
+alert(Congrats)
 }
 
 /** handleClick: handle click of column top to play piece */
