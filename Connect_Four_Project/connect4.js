@@ -16,7 +16,7 @@ let  board = []; // array of rows, each row is array of cells  (board[y][x])
  */
 
  function makeBoard() {
-  for (let i = 0; i < HEIGHT; y++) {//standard for lopp to create the board
+  for (let y = 0; y < HEIGHT; y++) {//standard for lopp to create the board
     board.push(Array.from({ length: WIDTH }));//takes the emtpy array above and creates an new, shallow-copied array
   }
 }
@@ -25,7 +25,7 @@ let  board = []; // array of rows, each row is array of cells  (board[y][x])
 
 function makeHtmlBoard() {
   // Sets "htmlBoard" variable from the item in HTML w/ID of "board"
-  const htmlBoard = document.getElementById ('board');
+  const board = document.getElementById ('board');
   const top = document.createElement("tr");// Sets a variable for the top row using the ID of "tr"
   top.setAttribute("id", "column-top");//sets the attributes form the new top row created
   top.addEventListener("click", handleClick);//uses an event listener function when a user clicks at the top
@@ -35,7 +35,7 @@ function makeHtmlBoard() {
     headCell.setAttribute("id", x);//sets the attribute for the new cells
     top.append(headCell);//appends to headCell and creates a child element
   }
-  htmlBoard.append(top);//appends to top row "tr"
+  board.append(top);//appends to top row "tr"
 
   // This creates the main part of the board
   for (let y = 0; y < HEIGHT; y++) {
@@ -46,14 +46,14 @@ function makeHtmlBoard() {
       cell.setAttribute("id", `${y}-${x}`);
       row.append(cell);
     }
-    htmlBoard.append(row);
+    board.append(row);
   }
 }
 
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 
 function findSpotForCol(x) {
-  for (let i = HEIGHT - 1; i >= 0; i--) {
+  for (let y = HEIGHT - 1; y >= 0; y--) {
     if (!board[y][x]) {
       return y;
     }
@@ -76,35 +76,39 @@ function placeInTable(y, x) {
 /** endGame: announce game end */
 
 function endGame(msg) {
-alert(Congrats)
+alert(msg)
 }
 
 /** handleClick: handle click of column top to play piece */
 
 function handleClick(evt) {
   // get x from ID of clicked cell
-  let x = +evt.target.id;
+  const x = +evt.target.id;
 
   // get next spot in column (if none, ignore click)
-  let y = findSpotForCol(x);
+  const y = findSpotForCol(x);
   if (y === null) {
     return;
   }
 
   // place piece in board and add to HTML table
-  // TODO: add line to update in-memory board
+  board[y][x]= currPlayer;
   placeInTable(y, x);
 
   // check for win
   if (checkForWin()) {
-    return endGame(`Player ${currPlayer} won!`);
+    return endGame(`Player ${currPlayer} won!`);//This is a callback function using a template literal
   }
 
   // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
-
+  if (board.every(row => row.every(cell => cell))) { 
+    return endGame('Tie!');
+  }
+  /*This uses the .every method() that tests whether all elements in the array
+   pass the test implemented by the provided function. It returns a Boolean value.*/
+    
   // switch players
-  // TODO: switch currPlayer 1 <-> 2
+  currPlayer = currPlayer === 1 ? 2 : 1;
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
@@ -125,9 +129,8 @@ function checkForWin() {
     );
   }
 
-  // TODO: read and understand this code. Add comments to help you.
 
-  for (let y = 0; y < HEIGHT; y++) {
+  for (let y = 0; y < HEIGHT; y++) {//standard for loop that iterates through the cells
     for (let x = 0; x < WIDTH; x++) {
       let horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
       let vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
