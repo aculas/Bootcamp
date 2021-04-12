@@ -1,3 +1,25 @@
+h1 {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+}
+
+body {
+  display: block;
+  margin: 8px;
+  background-color: lightcyan;
+}
+
+#board {
+  overflow: hidden;
+  margin: auto;
+}
 
 #board td {
   width: 50px;

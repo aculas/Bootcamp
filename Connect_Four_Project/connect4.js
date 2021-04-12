@@ -16,7 +16,7 @@ let  board = []; // array of rows, each row is array of cells  (board[y][x])
  */
 
  function makeBoard() {
-  for (let y = 0; y < HEIGHT; y++) {//standard for lopp to create the board
+  for (let y = 0; y < HEIGHT; y++) {//standard for loop to create the board
     board.push(Array.from({ length: WIDTH }));//takes the emtpy array above and creates an new, shallow-copied array
   }
 }
@@ -64,9 +64,9 @@ function findSpotForCol(x) {
 /** placeInTable: update DOM to place piece into HTML table of board */
 
 function placeInTable(y, x) {
-  const piece = document.createElement('div');
+  const piece = document.createElement('div');//creates a new div element for the individual pieces 
   piece.classList.add('piece');
-  piece.classList.add(`p${currPlayer}`);
+  piece.classList.add(`p${currPlayer}`);//adds whatever the current player is
   piece.style.top = -50 * (y + 2);
 
   const spot = document.getElementById(`${y}-${x}`);
@@ -92,8 +92,8 @@ function handleClick(evt) {
   }
 
   // place piece in board and add to HTML table
-  board[y][x]= currPlayer;
-  placeInTable(y, x);
+  board[y][x]= currPlayer;//this is multidimentional array
+  placeInTable(y, x);//callback function
 
   // check for win
   if (checkForWin()) {
@@ -132,11 +132,13 @@ function checkForWin() {
 
   for (let y = 0; y < HEIGHT; y++) {//standard for loop that iterates through the cells
     for (let x = 0; x < WIDTH; x++) {
-      let horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
-      let vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
-      let diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
-      let diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
-
+      // gets a "check list" of 4 cells (starting here) for each of the different
+        // ways to win
+      let horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];//Checks for a horizontal win
+      let vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];//Checks for a vertical win
+      let diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];//Checks for a diagonal right win
+      let diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];//Checks for a diagonal left win
+      // Finds a winner (only checking each win-possibility as needed) and returns true
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
         return true;
       }
