@@ -31,7 +31,7 @@ function makeHtmlBoard() {
   top.addEventListener("click", handleClick);//uses an event listener function when a user clicks at the top
 //Creates datacells in a top row and stores them in a variable using the id of "td"
   for (let x = 0; x < WIDTH; x++) {
-    let headCell = document.createElement("td");//creates and inital head cell
+    let headCell = document.createElement("td");//creates an initial head cell
     headCell.setAttribute("id", x);//sets the attribute for the new cells
     top.append(headCell);//appends to headCell and creates a child element
   }
