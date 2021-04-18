@@ -18,7 +18,7 @@ let  board = []; // array of rows, each row is array of cells  (board[y][x])
  function makeBoard() {
   for (let y = 0; y < HEIGHT; y++) {//standard for loop to create the board
     board.push(Array.from({ length: WIDTH }));//takes the emtpy array above and creates an new, shallow-copied array
-  }
+  }//array from something so an object or array takes
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
@@ -28,7 +28,7 @@ function makeHtmlBoard() {
   const board = document.getElementById ('board');
   const top = document.createElement("tr");// Sets a variable for the top row using the ID of "tr"
   top.setAttribute("id", "column-top");//sets the attributes form the new top row created
-  top.addEventListener("click", handleClick);//uses an event listener function when a user clicks at the top
+  top.addEventListener("click", handleClick);//uses an event listener on a specific function or elelment we are interested in when a user clicks at the top(scroll, click, keydown, keyup)
 //Creates datacells in a top row and stores them in a variable using the id of "td"
   for (let x = 0; x < WIDTH; x++) {
     let headCell = document.createElement("td");//creates an initial head cell
@@ -53,8 +53,8 @@ function makeHtmlBoard() {
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 
 function findSpotForCol(x) {
-  for (let y = HEIGHT - 1; y >= 0; y--) {
-    if (!board[y][x]) {
+  for (let y = HEIGHT - 1; y >= 0; y--) {//minus 1 the index or keys will always be the number of elements -1 EX: arr.length -1 when looping
+    if (!board[y][x]) {//check positon is undefined or not truthy
       return y;
     }
   }
