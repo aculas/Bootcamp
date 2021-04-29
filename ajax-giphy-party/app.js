@@ -27,7 +27,8 @@ $('form').on('submit', async function(evt) {
 
 	const response = await axios.get('http://api.giphy.com/v1/gifs/search', {
 		params: {
-			q: searchTerm,
+			//these are found under Request parameters on GIPHY
+			q: searchTerm, //this is a string called searchTerm
 			api_key: 'MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym'
 		}
 	});
