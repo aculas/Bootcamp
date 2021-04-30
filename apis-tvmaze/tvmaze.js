@@ -1,4 +1,4 @@
-const MISSING_IMAGE_URL = 'http://tinyurl.com/missing-tv';
+const MISSING_IMAGE_URL = 'http://tinyurl.com/tv-missing';
 
 /** Given a query string, return array of matching shows:
  *     { id, name, summary, episodesUrl }
