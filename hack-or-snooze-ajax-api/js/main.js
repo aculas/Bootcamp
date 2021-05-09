@@ -5,19 +5,22 @@
 const $body = $('body');
 
 const $storiesLoadingMsg = $('#stories-loading-msg');
+
+//Story selectors
 const $allStoriesList = $('#all-stories-list');
 const $favoritedStories = $('#favorited-stories');
-const $ownStories = $('#my-stories');
+const $userSubmittedStories = $('#user-submitted-stories');
+const $allStoryLists = $('.stories-list');
 
-// selector that finds all three story lists
-const $storiesLists = $('.stories-list');
-
+// Forms
 const $loginForm = $('#login-form');
 const $signupForm = $('#signup-form');
+const $submitNewStoryForm = $('#submit-new-story-form');
 
-const $submitForm = $('#submit-form');
-
-const $navSubmitStory = $('#nav-submit-story');
+//Navigation selectors
+const $navSubmitNewStory = $('#nav-submit-new-story');
+const $navFavoritesList = $('#nav-favorites-list');
+const $navUserSubmittedStories = $('#nav-user-submitted-stories');
 const $navLogin = $('#nav-login');
 const $navUserProfile = $('#nav-user-profile');
 const $navLogOut = $('#nav-logout');
@@ -30,7 +33,7 @@ const $userProfile = $('#user-profile');
  */
 
 function hidePageComponents() {
-	const components = [ $allStoriesList, $loginForm, $signupForm ];
+	const components = [ $submitNewStoryForm, $allStoriesList, $loginForm, $signupForm ];
 	components.forEach((c) => c.hide());
 }
 

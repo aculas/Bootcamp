@@ -5,7 +5,6 @@
  */
 
 /** Show main list of all stories when click site name */
-
 function navAllStories(evt) {
 	console.debug('navAllStories', evt);
 	hidePageComponents();
@@ -14,40 +13,7 @@ function navAllStories(evt) {
 
 $body.on('click', '#nav-all', navAllStories);
 
-/** Show story submit form on clicking story "submit" */
-
-function navSubmitStoryClick(evt) {
-	console.debug('navSubmitStoryClick', evt);
-	hidePageComponents();
-	$allStoriesList.show();
-	$submitForm.show();
-}
-
-$navSubmitStory.on('click', navSubmitStoryClick);
-
-/** Show favorite stories on click on "favorites" */
-
-function navFavoritesClick(evt) {
-	console.debug('navFavoritesClick', evt);
-	hidePageComponents();
-	putFavoritesListOnPage();
-}
-
-$body.on('click', '#nav-favorites', navFavoritesClick);
-
-/** Show My Stories on clicking "my stories" */
-
-function navMyStories(evt) {
-	console.debug('navMyStories', evt);
-	hidePageComponents();
-	putUserStoriesOnPage();
-	$ownStories.show();
-}
-
-$body.on('click', '#nav-my-stories', navMyStories);
-
 /** Show login/signup on click on "login" */
-
 function navLoginClick(evt) {
 	console.debug('navLoginClick', evt);
 	hidePageComponents();
@@ -57,18 +23,7 @@ function navLoginClick(evt) {
 
 $navLogin.on('click', navLoginClick);
 
-/** Hide everything but profile on click on "profile" */
-
-function navProfileClick(evt) {
-	console.debug('navProfileClick', evt);
-	hidePageComponents();
-	$userProfile.show();
-}
-
-$navUserProfile.on('click', navProfileClick);
-
 /** When a user first logins in, update the navbar to reflect that. */
-
 function updateNavOnLogin() {
 	console.debug('updateNavOnLogin');
 	$('.main-nav-links').show();
@@ -76,3 +31,40 @@ function updateNavOnLogin() {
 	$navLogOut.show();
 	$navUserProfile.text(`${currentUser.username}`).show();
 }
+
+/** Show new story submit form on click on "submit" */
+function navSubmitClick(evt) {
+	console.debug('navSubmitClick', evt);
+	hidePageComponents();
+	putStoriesOnPage();
+	$submitNewStoryForm.show();
+}
+
+$navSubmitNewStory.on('click', navSubmitClick);
+
+/** Show user favorites list on click on "favorites" */
+function navFavoritesClick(evt) {
+	console.debug('navFavoritesClick', evt);
+	hidePageComponents();
+	putUserFavoritesListOnPage();
+}
+
+$navFavoritesList.on('click', navFavoritesClick);
+
+/** Show user submitted stories on click on "my stories" */
+function navMyStoriesClick(evt) {
+	console.debug('navMyStoriesClick', evt);
+	hidePageComponents();
+	putUserStoriesListOnPage();
+}
+
+$navUserSubmittedStories.on('click', navMyStoriesClick);
+
+/** Show user profile on click on profile name */
+function navProfileClick(evt) {
+	console.debug('navProfileClick', evt);
+	hidePageComponents();
+	$userProfile.show();
+}
+
+$navUserProfile.on('click', navProfileClick);
