@@ -34,9 +34,9 @@ function updateNavOnLogin() {
 
 /** Show new story submit form on click on "submit" */
 function navSubmitClick(evt) {
+	evt.preventDefault();
 	console.debug('navSubmitClick', evt);
 	hidePageComponents();
-	putStoriesOnPage();
 	$submitNewStoryForm.show();
 }
 

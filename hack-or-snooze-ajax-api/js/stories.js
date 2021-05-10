@@ -71,7 +71,7 @@ async function submitNewStory(evt) {
 
 	// Add story to api & local lists
 	const submittedStory = await storyList.addStory(currentUser, { title, author, url });
-
+	alert('Your Story Has Been Submitted!');
 	// Add story to DOM and hide & reset form
 	$allStoriesList.prepend(generateStoryMarkup(submittedStory));
 	$submitNewStoryForm.hide();
