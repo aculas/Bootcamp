@@ -11,3 +11,18 @@ def mode(nums):
         >>> mode([2, 2, 3, 3, 2])
         2
     """
+    # Start off with a counter for number freqency
+    counts = {}
+
+    for num in nums:
+        counts[num] = counts.get(num, 0) +1
+    
+    # Find the highest frequency of a number and store it in a variable
+
+    max_value = max(counts.values())  
+
+    # Checks for index location
+
+    for (num, freq) in counts.items():
+        if freq == max.value:
+            return num 
