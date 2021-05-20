@@ -62,8 +62,8 @@ function putStoriesOnPage() {
 
 /** Gets new story info from form and adds new story to api, DOM, & local lists. */
 async function submitNewStory(evt) {
-	console.debug('submitNewStory');
-	evt.preventDefault();
+	console.debug('submitNewStory'); //This logs a message in the console(can be any message)
+	evt.preventDefault(); // This event will prevents the default behavior for this particular event that will prevent it from reloading the page
 	// Get story info from html form
 	const title = $('#new-story-title').val();
 	const author = $('#new-story-author').val();
@@ -76,12 +76,16 @@ async function submitNewStory(evt) {
 	$allStoriesList.prepend(generateStoryMarkup(submittedStory));
 	$submitNewStoryForm.hide();
 
-	$('#new-story-title').val('');
+	$('#new-story-title').val(''); //Resets values
 	$('#new-story-author').val('');
 	$('#new-story-url').val('');
 }
 
 $submitNewStoryForm.on('submit', submitNewStory);
+$body.on('contextmenu', function(event) {
+	event.preventDefault();
+	alert('No Right CLick Allowed!!');
+});
 
 function putUserFavoritesListOnPage() {
 	console.debug('putUserFavoritesListOnPage');
