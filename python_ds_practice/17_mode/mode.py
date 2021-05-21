@@ -15,9 +15,9 @@ def mode(nums):
     counts = {}
 
     for num in nums:
-        counts[num] = counts.get(num, 0) +1
+        counts[num] = counts.get(num, 0) + 1
     
-    # Find the highest frequency of a number and store it in a variable
+    # Finds the highest frequency of a number and stores it in a variable
 
     max_value = max(counts.values())  
 

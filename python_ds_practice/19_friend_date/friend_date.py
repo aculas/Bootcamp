@@ -16,3 +16,8 @@ def friend_date(a, b):
         >>> friend_date(sauron, gandalf)
         True
     """
+#    Uses the set construcor with the intersection set operation and the index of the tuple to compare 
+   if set(a[2]) & set(b[2]):
+       return True
+    else:
+        return False
