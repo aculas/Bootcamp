@@ -21,7 +21,7 @@ class SerialGenerator:
     """
 
     def __init__(self, start=0):
-        """Makes a new serial generator starting at start """
+        """Makes a new serial generator starting at start. Both self values equal start """
         self.start = self.next = start
 
     def __repr__(self):

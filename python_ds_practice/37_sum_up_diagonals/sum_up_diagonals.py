@@ -26,3 +26,5 @@ def sum_up_diagonals(matrix):
         total += matrix[i][-1 -i]
 
     return total
+    # rows and colums are [i][i]
+    # Look up index for arrays of arrays
