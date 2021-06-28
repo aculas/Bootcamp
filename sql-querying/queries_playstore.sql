@@ -62,23 +62,27 @@ SELECT * FROM analytics
 
 -- 11. Find the most out of date app. Hint: You don’t need to do it this way, but it’s possible to do with a subquery: http://www.postgresqltutorial.com/postgresql-max-function/
 
-SELECT * FROM analytics 
-  WHERE last_updated = (SELECT MIN(last_updated) FROM analytics);
-
+SELECT * FROM analytics
+  ORDER BY last_updated LIMIT 1;
 
 -- 12. Find the most expensive app (the query is very similar to #11).
 
-
-
+SELECT * FROM analytics
+  ORDER BY price DESC LIMIT 1;
 
 -- 13. Count all the reviews in the Google Play Store.
-
-
-
+SELECT SUM(reviews) AS "All the Reviews" FROM analytics;
 
 -- 14. Find all the categories that have more than 300 apps in them.
-
-
+SELECT categories FROM analytics
+GROUP BY categories
+HAVING COUNT(*) > 300;
 
 
 -- 15. Find the app that has the highest proportion of min_installs to reviews, among apps that have been installed at least 100,000 times. Display the name of the app along with the number of reviews, the min_installs, and the proportion.
+-- NOTE: This one I had to look at the solution as it was more difficult than the others
+SELECT app_name, reviews, min_installs,  min_installs / reviews AS proportion
+  FROM analytics
+  WHERE min_installs >= 100000
+  ORDER BY proportion DESC
+  LIMIT 1;
