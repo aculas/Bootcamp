@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 --1. Join the two tables so that every column and record appears, regardless of if there is not an owner_id.
 --NOTE: I was getting an error from this query Error: Missing FROM-clause entry for table owner when I used FULL OUTER JOIN 
@@ -29,3 +30,15 @@ JOIN vehicles v on o.id = v.owner_id
 GROUP BY (first_name, last_name) 
 HAVING COUNT(owner_id) > 1 AND ROUND(AVG(price)) > 10000 
 ORDER BY first_name DESC;
+||||||| b48acf3
+=======
+
+--1. Join the two tables so that every column and record appears, regardless of if there is not an owner_id.
+
+
+
+
+
+
+--2. Count the number of cars for each owner. Display the owners first_name, last_name and count of vehicles. The first_name should be ordered in ascending order.
+>>>>>>> 11779653d8707b8efe20d96c90b39bbf0c3d1b2d
