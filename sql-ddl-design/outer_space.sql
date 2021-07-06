@@ -26,3 +26,11 @@ VALUES
   ('Neptune', 164.8, 'The Sun', 'Milky Way', '{"Naiad", "Thalassa", "Despina", "Galatea", "Larissa", "S/2004 N 1", "Proteus", "Triton", "Nereid", "Halimede", "Sao", "Laomedeia", "Psamathe", "Neso"}'),
   ('Proxima Centauri b', 0.03, 'Proxima Centauri', 'Milky Way', '{}'),
   ('Gliese 876 b', 0.23, 'Gliese 876', 'Milky Way', '{}');
+
+
+
+
+
+
+
+  
