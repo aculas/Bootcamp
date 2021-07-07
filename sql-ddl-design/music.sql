@@ -1,6 +1,6 @@
 -- from the terminal run:
 -- psql < music.sql
-
+--Looking at this database the only change that I would make is to make a separate table of producers but that seems unneccessary 
 DROP DATABASE IF EXISTS music;
 
 CREATE DATABASE music;
