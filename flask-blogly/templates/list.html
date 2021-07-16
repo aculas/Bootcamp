@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+  </head>
+
+  <body>
+    <ul>
+      <h1>Users</h1>
+      {% for user in users %}
+      <li><a href="/{{user.id}}">{{user.first_name} {{user.last_name}}}</a></li>
+      {% endfor %}
+    </ul>
+    <h2>Create New user</h2>
+    <form action="/" method="POST">
+      <input type="text" name="first_name" placeholder="Enter a first name" />
+      <input type="text" name="last_name" placeholder="Enter a last name" />
+      <input
+        type="text"
+        Url="image_url"
+        placeholder="Provide an image of this user"
+      />
+      <button>Add</button>
+    </form>
+  </body>
+</html>
