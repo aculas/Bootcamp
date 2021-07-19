@@ -51,7 +51,7 @@ def users_new():
 def show_user(user_id):
     """Show details about a single user"""
     user = User.query.get_or_404(user_id)
-    return render_template('details.html', user=user)
+    return render_template('users/show.html', user=user)
 
 
 @app.route('/users/<int:user_id>')
