@@ -43,6 +43,7 @@ def add_pet():
     if form.validate_on_submit():
         data = {k: v for k, v in form.data.items() if k != "csrf_token"}
         new_pet = Pet(**data)
+        # This is a new concept for me **data
         # new_pet = Pet(name=form.name.data, age=form.age.data, ...)
         db.session.add(new_pet)
         db.session.commit()
