@@ -80,3 +80,12 @@ class UserModelTestCase(TestCase):
         # User should have no messages & no followers
         self.assertEqual(len(u.messages), 0)
         self.assertEqual(len(u.followers), 0)
+
+    ####
+    #
+    # Following tests
+    #
+    ####
+    def test_user_follows(self):
+        self.u1.following.append(self.u2)
+        db.session.commit()
