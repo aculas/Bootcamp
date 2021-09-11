@@ -13,3 +13,5 @@ function cat(path) {
     }
   });
 }
+
+cat(process.argv[2]);
