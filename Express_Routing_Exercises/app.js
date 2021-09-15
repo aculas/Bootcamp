@@ -1,36 +1,41 @@
 const express = require("express");
 const ExpressError = require("./expressError");
 const app = express();
-// Array ofnumbers
-const nums = [2, 10, 9, 6, 12, 3];
 
-//Sum of the numbers in array
-let totalSum = 0;
-for (let i in nums) {
-  totalSum += nums[i];
-}
-
-//How many numbers are in our array.
-let numsCnt = nums.length;
-
-//Get the average.
-let average = totalSum / numsCnt;
+const {
+  convertAndValidateNumsArray,
+  findMode,
+  findMean,
+  findMedian,
+} = require("./helpers");
 
 //This will Print the median / average to the console.
 app.get("/mean", function (req, res, next) {
-  if (average != NAN) throw new ExpressError("that is not a valid number", 400);
-  return res.send("Average is: " + average);
-});
+  if (!req.query.num) {
+    throw new ExpressError("That is not a valid number", 400);
+  }
+  let numsAsString = req.query.nums.split(",");
+  let nums = convertAndValidateNumsArray(numsAsString);
+  if (nums instanceof Error) {
+    throw new ExpressError(nums.message);
+  }
 
+  let result = {
+    operation: "mean",
+    result: findMean(nums),
+  };
+
+  return res.send(result);
+});
 app.get("/median", (req, res, next) => {
-  return res.send("Median is: " + median);
+  return res.send(result);
 });
 
 app.get("/mode", (req, res, next) => {
   return res.send("Mode is: " + mode);
 });
 
-// Error handler(middleware) this needs to be at the end so the above routes run first
+// Error handler
 app.use(function (err, req, res, next) {
   let status = err.status || 400;
   let message = err.msg;
