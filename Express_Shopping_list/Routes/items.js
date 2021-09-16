@@ -1,7 +1,8 @@
+const Item = require('../item');
 const express = require("express");
-const router = new express.Router();
-const ExpressError = require("../expressError");
-const items = require("../fakeDb");
+
+const router = express.Router();
+
 
 router.get("/", function (req, res) {
   res.json({ items });
@@ -27,7 +28,7 @@ router.get("/:name", function (req, res) {
 });
 
 router.patch("/:name", function (req, res) {
-  const founditems = itemss.find((items) => items.name === req.params.name);
+  const founditems = items.find((items) => items.name === req.params.name);
   if (founditems === undefined) {
     throw new ExpressError("items not found", 404);
   }
