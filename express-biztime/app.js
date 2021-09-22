@@ -1,13 +1,16 @@
 /** BizTime express application. */
 
 const express = require("express");
-const app = express();
-const ExpressError = require("./expressError");
-const companyRoutes = require("./routes/companies");
 
-app.use("/companies", companyRoutes);
+const ExpressError = require("./expressError");
+const companiesRoutes = require("./routes/companies");
+const invoicesRoutes = require("./routes/invoices");
+
+const app = express();
 
 app.use(express.json());
+app.use("/companies", companiesRoutes);
+app.use("/invoices", invoicesRoutes);
 
 /** 404 handler */
 
@@ -28,7 +31,7 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(3000, function () {
-  console.log("Server started on 3000");
+  console.log("Listening on 3000");
 });
 
 module.exports = app;
