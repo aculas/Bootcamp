@@ -14,6 +14,13 @@ class Reservation {
     this.startAt = startAt;
     this.notes = notes;
   }
+
+  /** formatter for startAt */
+
+  getformattedStartAt() {
+    return moment(this.startAt).format("MMMM Do YYYY, h:mm a");
+  }
+
   // methods for getting/setting number of guests
 
   set numGuests(val) {
@@ -50,13 +57,19 @@ class Reservation {
     return this._notes;
   }
 
-  /** formatter for startAt */
+  // methods for setting/getting customer ID: can only set once.
 
-  getformattedStartAt() {
-    return moment(this.startAt).format("MMMM Do YYYY, h:mm a");
+  set customerId(val) {
+    if (this._customerId && this._customerId !== val)
+      throw new Error("Cannot change customer ID");
+    this._customerId = val;
   }
 
-  /** given a customer id, find their reservations. */
+  get customerId() {
+    return this._customerId;
+  }
+
+  // given a customer id, find their reservations.
 
   static async getReservationsForCustomer(customerId) {
     const results = await db.query(
@@ -73,7 +86,7 @@ class Reservation {
     return results.rows.map((row) => new Reservation(row));
   }
 
-  /** find a reservation by id. */
+  // find a reservation by id.
 
   static async get(id) {
     const result = await db.query(
@@ -97,6 +110,8 @@ class Reservation {
 
     return new Reservation(reservation);
   }
+
+  /** save reservation. */
 
   async save() {
     if (this.id === undefined) {
