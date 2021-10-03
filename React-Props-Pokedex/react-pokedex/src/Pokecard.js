@@ -7,7 +7,7 @@ const POKE_API =
 
 // Single Pokemon card
 
-function Poekcard(props) {
+function Pokecard(props) {
   let imgSrc = `${POKE_API}${props.id}.png`;
 
   return (

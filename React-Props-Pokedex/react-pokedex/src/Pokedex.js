@@ -28,4 +28,4 @@ function Pokedex(props) {
   );
 }
 
-export default Pokede;
+export default Pokedex;
