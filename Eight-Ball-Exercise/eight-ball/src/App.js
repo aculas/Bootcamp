@@ -1,4 +1,5 @@
-import { choice, remove } from "./helpers";
+import React from "react";
+import "./App.css";
 import EightBall from "./EightBall";
 
 function App() {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ".EightBall.css";
+import "./EightBall.css";
 
 function choice(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
