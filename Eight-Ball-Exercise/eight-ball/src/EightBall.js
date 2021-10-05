@@ -9,6 +9,10 @@ function choice(arr) {
 function EightBall(props) {
   const [msg, setMsg] = useState("Think of your question");
   const [color, setColor] = useState("black");
+  const restart = () => {
+    setMsg(msg);
+    setColor(color);
+  };
 
   function handleClick() {
     const { msg, color } = choice(props.answers);
@@ -22,6 +26,10 @@ function EightBall(props) {
       style={{ backgroundColor: color }}
     >
       <b> {msg}</b>
+
+      <button className="Button" onClick={() => restart()}>
+        Reset
+      </button>
     </div>
   );
 }
