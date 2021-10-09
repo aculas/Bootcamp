@@ -7,11 +7,14 @@ function choice(arr) {
 }
 
 function EightBall(props) {
-  const [msg, setMsg] = useState("Think of your question");
-  const [color, setColor] = useState("black");
-  const restart = () => {
-    setMsg(msg);
-    setColor(color);
+  const defaultMessage = "Think of your question.";
+  const defaultColor = "black";
+  const [msg, setMsg] = useState(defaultMessage);
+  const [color, setColor] = useState(defaultColor);
+  const reset = () => {
+    console.log("Is this working?");
+    setMsg(defaultMessage);
+    setColor(defaultColor);
   };
 
   function handleClick() {
@@ -20,14 +23,15 @@ function EightBall(props) {
     setColor(color);
   }
   return (
-    <div
-      className="EightBall"
-      onClick={handleClick}
-      style={{ backgroundColor: color }}
-    >
-      <b> {msg}</b>
-
-      <button className="Button" onClick={() => restart()}>
+    <div>
+      <div
+        className="EightBall"
+        onClick={handleClick}
+        style={{ backgroundColor: color }}
+      >
+        <b> {msg}</b>
+      </div>
+      <button className="Button" onClick={reset}>
         Reset
       </button>
     </div>
