@@ -4,8 +4,9 @@
 
 .Deck-gimme {
   padding: 15px;
-  background-color: black;
-  color: white;
+  background-color: silver;
+  color: black;
+  font-style: bold;
   border-radius: 8px;
   border: none;
   margin: 0 10px;
@@ -13,7 +14,7 @@
 
 .Deck-gimme:hover {
   cursor: pointer;
-  background-color: #444;
+  background-color: rgb(0, 225, 255);
 }
 
 .Deck-gimme:active,
