@@ -44,3 +44,6 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+// authentication and tokens are necessity in any job
+// Practice that on insomnia some more 

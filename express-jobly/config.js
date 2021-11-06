@@ -1,7 +1,7 @@
 "use strict";
 
 /** Shared config for application; can be required many places. */
-
+// looks for a variable inside process.env
 require("dotenv").config();
 require("colors");
 
@@ -11,9 +11,9 @@ const PORT = +process.env.PORT || 3001;
 
 // Use dev database, testing database, or via env var, production database
 function getDatabaseUri() {
-  return (process.env.NODE_ENV === "test")
-      ? "jobly_test"
-      : process.env.DATABASE_URL || "jobly";
+  return process.env.NODE_ENV === "test"
+    ? "jobly_test"
+    : process.env.DATABASE_URL || "jobly";
 }
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
