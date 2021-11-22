@@ -2,15 +2,28 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import VendingMachine from "./VendingMachine";
-import Sardines from "./Sardines";
+import Sardines from "./Sardines.js";
 import Chips from "./Chips";
 import Soda from "./Soda";
 
 function App() {
   return (
-    <div className="App">
-      <VendingMachine />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact>
+          <VendingMachine />
+        </Route>
+        <Route path="/soda" exact>
+          <Soda />
+        </Route>
+        <Route path="/chips" exact>
+          <Chips />
+        </Route>
+        <Route path="/sardines" exact>
+          <Sardines />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
