@@ -2,12 +2,14 @@ const store = Redux.createStore(moodReducer);
 
 const face = document.getElementById("face");
 
+const backgroundColor = store.getState().color;
+
 // listeners for the buttons
 document.getElementById("Happy").addEventListener("click", () => {
   store.dispatch({
     type: "MOOD_HAPPY",
     payload: "^ㅂ^",
-    backgroundColor: green,
+    color: { backgroundColor },
   });
 });
 
