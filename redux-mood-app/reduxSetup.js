@@ -1,17 +1,17 @@
 const INITIAL_STATE = { face: "(ñ_ñ)" };
-const emotionReducer = (state = INITIAL_STATE, action) => {
+const moodReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "HAPPY":
-      return { ...state, face: "^ㅂ^" };
-    case "SAD":
-      return { ...state, face: "⊙︿⊙" };
-    case "ANGRY":
-      return { ...state, face: "ಠ╭╮ಠ" };
-    case "CONFUSED":
-      return { ...state, face: "◔_◔" };
+    case "MOOD_HAPPY":
+      return { ...state, face: action.payload };
+    case "MOOD_SAD":
+      return { ...state, face: action.payload };
+    case "MOOD_ANGRY":
+      return { ...state, face: action.payload };
+    case "MOOD_CONFUSED":
+      return { ...state, face: action.payload };
+    case "RESET":
+      return { ...state, face: action.payload };
     default:
       return state;
   }
 };
-
-const store = Redux.createStore(emotionReducer);

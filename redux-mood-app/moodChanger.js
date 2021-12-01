@@ -1,28 +1,32 @@
-const happyButton = document.querySelector("#Happy");
-const sadButton = document.querySelector("#Sad");
-const angryButton = document.querySelector("#Angry");
-const confusedButton = document.querySelector("#Confused");
+const store = Redux.createStore(moodReducer);
 
-happyButton.addEventListener("click", function (e) {
-  store.dispatch({ type: "HAPPY" });
-  const state = store.getState();
-  h1.innerText = state.face;
+const face = document.getElementById("face");
+
+// listeners for the buttons
+document.getElementById("Happy").addEventListener("click", () => {
+  store.dispatch({
+    type: "MOOD_HAPPY",
+    payload: "^ㅂ^",
+    backgroundColor: green,
+  });
 });
 
-sadButton.addEventListener("click", function (e) {
-  store.dispatch({ type: "SAD" });
-  const state = store.getState();
-  h1.innerText = state.face;
+document.getElementById("Sad").addEventListener("click", () => {
+  store.dispatch({ type: "MOOD_SAD", payload: ";_;" });
+});
+document.getElementById("Angry").addEventListener("click", () => {
+  store.dispatch({ type: "MOOD_ANGRY", payload: "ಠ╭╮ಠ" });
+});
+document.getElementById("Confused").addEventListener("click", () => {
+  store.dispatch({ type: "MOOD_CONFUSED", payload: "◔_◔" });
+});
+document.getElementById("Reset").addEventListener("click", () => {
+  store.dispatch({ type: "RESET", payload: "(ñ_ñ)" });
 });
 
-angryButton.addEventListener("click", function (e) {
-  store.dispatch({ type: "ANGRY" });
-  const state = store.getState();
-  h1.innerText = state.face;
-});
+function renderFace() {
+  face.innerHTML = store.getState().face;
+}
 
-confusedButton.addEventListener("click", function (e) {
-  store.dispatch({ type: "CONFUSED", payload: "^ω^" });
-  const state = store.getState();
-  h1.innerText = state.face;
-});
+renderFace();
+store.subscribe(renderFace);
