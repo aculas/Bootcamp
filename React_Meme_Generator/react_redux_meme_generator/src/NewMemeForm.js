@@ -57,3 +57,5 @@ function NewMemeForm({ addMeme }) {
     </div>
   );
 }
+
+export default NewMemeForm;
