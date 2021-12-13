@@ -28,3 +28,5 @@ function CartIcons({ id }) {
     </div>
   );
 }
+
+export default CartIcons;

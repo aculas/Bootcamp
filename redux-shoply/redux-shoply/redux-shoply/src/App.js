@@ -1,13 +1,19 @@
 import React from "react";
-import { Provider } from "react-redux";
-import rootReducer from "./rootReducer";
-import { createStore } from "redux";
-import "./App.css";
+import Navbar from "./Navbar";
+import Routes from "./Routes";
 
-const store = createStore(rootReducer);
+/** Main application. */
 
 function App() {
-  return <Provider store={store}></Provider>;
+  return (
+    <main>
+      <Navbar />
+      <div className="container">
+        <h1 className="mt-3">Welcome to the shopping cart!</h1>
+        <Routes />
+      </div>
+    </main>
+  );
 }
 
 export default App;
