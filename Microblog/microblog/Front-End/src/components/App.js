@@ -18,7 +18,7 @@ function App() {
     <div className="App Container">
       <header className="App-header jumbotron mt-2">
         <h1 className="App-title display-4">Microblog</h1>
-        <p className="lead">Get in the Rithm of blogging!</p>
+        <p className="lead">Get in the groove of blogging!</p>
         <nav>
           <NavLink exact to="/">
             Blog

@@ -7,20 +7,18 @@ import PostForm from "../components/PostForm";
 
 // Shows posts form and handles the editing of the form.
 
-function NewPost () {
+function NewPost() {
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-const dispatch = useDispatch();
-const history = useHistory();
+  // Adds posts and saves to the backend.
 
-// Adds posts and saves to the backend.
-
-function add ({title, description, body}) {
+  function add({ title, description, body }) {
     dispatch(sendPostToAPI(title, description, body));
     history.push("/");
-}
+  }
 
-
-// Cancels pist (redirect)
+  // Cancels pist (redirect)
 
   function cancel() {
     history.push("/");
@@ -35,15 +33,3 @@ function add ({title, description, body}) {
 }
 
 export default NewPost;
-
-
-
-
-
-
-
-
-
-
-
-}
