@@ -67,19 +67,33 @@ class LinkedList {
 
   /** pop(): return & remove last item. */
 
-  pop() {}
-
+  pop() {
+    return this.removeAt(this.length - 1);
+  }
   /** shift(): return & remove first item. */
 
-  shift() {}
-
+  shift() {
+    return this.removeAt(0);
+  }
   /** getAt(idx): get val at idx. */
 
-  getAt(idx) {}
+  getAt(idx) {
+    if (idx >= this.length || idx < 0) {
+      throw new Error("Invalid index.");
+    }
 
+    return this._get(idx).val;
+  }
   /** setAt(idx, val): set val at idx to val */
 
-  setAt(idx, val) {}
+  setAt(idx, val) {
+    if (idx >= this.length || idx < 0) {
+      throw new Error("Invalid index.");
+    }
+
+    let cur = this._get(idx);
+    cur.val = val;
+  }
 
   /** insertAt(idx, val): add node w/val before idx. */
 
