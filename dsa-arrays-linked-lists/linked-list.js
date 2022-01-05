@@ -21,56 +21,51 @@ class LinkedList {
   /** push(val): add new value to end of list. */
 
   push(val) {
-
+    //accepts a val and creates a new node using the value passed
+    let newNode = new Node(val);
+    //if there is no head property on the list, the head and tail is set to newNode
+    if (!this.head) {
+      this.head = this.tail = newNode;
+    } else {
+      //set the next property on the tail to be the newNode and the tail property on the list to the newNode
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    //increment the list length by 1
+    this.length++;
   }
 
   /** unshift(val): add new value to start of list. */
 
-  unshift(val) {
-
-  }
+  unshift(val) {}
 
   /** pop(): return & remove last item. */
 
-  pop() {
-
-  }
+  pop() {}
 
   /** shift(): return & remove first item. */
 
-  shift() {
-
-  }
+  shift() {}
 
   /** getAt(idx): get val at idx. */
 
-  getAt(idx) {
-
-  }
+  getAt(idx) {}
 
   /** setAt(idx, val): set val at idx to val */
 
-  setAt(idx, val) {
-
-  }
+  setAt(idx, val) {}
 
   /** insertAt(idx, val): add node w/val before idx. */
 
-  insertAt(idx, val) {
-
-  }
+  insertAt(idx, val) {}
 
   /** removeAt(idx): return & remove item at idx, */
 
-  removeAt(idx) {
-
-  }
+  removeAt(idx) {}
 
   /** average(): return an average of all values in the list */
 
-  average() {
-    
-  }
+  average() {}
 }
 
 module.exports = LinkedList;
