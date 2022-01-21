@@ -107,22 +107,76 @@ class BinarySearchTree {
   /** dfsPreOrder(): Traverse the array using pre-order DFS.
    * Return an array of visited nodes. */
 
-  dfsPreOrder() {}
+  dfsPreOrder() {
+    let data = [];
+    let current = this.root;
+
+    function traverse(node) {
+      data.push(node.val);
+      node.left && traverse(node.left);
+      node.right && traverse(node.right);
+    }
+
+    traverse(current);
+    return data;
+  }
 
   /** dfsInOrder(): Traverse the array using in-order DFS.
    * Return an array of visited nodes. */
 
-  dfsInOrder() {}
+  dfsInOrder() {
+    let data = [];
+    let current = this.root;
+
+    function traverse(node) {
+      node.left && traverse(node.left); // go left if there's a left
+      data.push(node.val); // visit
+      node.right && traverse(node.right); // go right if there's a right
+    }
+
+    traverse(current);
+    return data;
+  }
 
   /** dfsPostOrder(): Traverse the array using post-order DFS.
    * Return an array of visited nodes. */
 
-  dfsPostOrder() {}
+  dfsPostOrder() {
+    let data = [];
+    let current = this.root;
+
+    function traverse(node) {
+      node.left && traverse(node.left); // go left if there's a left
+      node.right && traverse(node.right); // go right if there's a right
+      data.push(node.val); // visit
+    }
+
+    traverse(current);
+    return data;
+  }
 
   /** bfs(): Traverse the array using BFS.
    * Return an array of visited nodes. */
 
-  bfs() {}
+  bfs() {
+    let node = this.root;
+    let queue = [];
+    let data = [];
+
+    queue.push(node);
+
+    while (queue.length) {
+      node = queue.shift();
+      data.push(node.value);
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
+    }
+    return data;
+  }
 
   /** Further Study!
    * remove(val): Removes a node in the BST with the value val.
@@ -133,13 +187,41 @@ class BinarySearchTree {
   /** Further Study!
    * isBalanced(): Returns true if the BST is balanced, false otherwise. */
 
-  isBalanced() {}
+  isBalanced(current = this.root) {
+    if (current === null) return;
+    return maxDepth(current) - minDepth(current) <= 1;
+
+    function minDepth(current) {
+      if (current === null) return 0;
+      return 1 + Math.min(minDepth(current.left), minDepth(current.right));
+    }
+
+    function maxDepth(current) {
+      if (current === null) return 0;
+      return 1 + Math.max(maxDepth(current.left), maxDepth(current.right));
+    }
+  }
 
   /** Further Study!
    * findSecondHighest(): Find the second highest value in the BST, if it exists.
    * Otherwise return undefined. */
 
-  findSecondHighest() {}
+  findSecondHighest(current = this.root) {
+    // if the tree is too small, return
+    if (!this.root || (!this.root.left && !this.root.right)) return;
+
+    while (current) {
+      // Current is largest and has a left subtree and 2nd largest is the largest in that subtree
+      if (current.left && !current.right) {
+        return this.findSecondHighest(current.left);
+      }
+      // Current is parent of largest and largest has no children so current is 2nd largest
+      if (current.right && !current.right.left && !current.right.right) {
+        return current.val;
+      }
+      current = current.right;
+    }
+  }
 }
 
 module.exports = BinarySearchTree;
