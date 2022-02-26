@@ -27,4 +27,5 @@ function binarySearch(arr, val) {
   //   console.log(middleIdx);
 }
 
-//Big O n stands for the number of inputs into an element
+//Big O:  n  in terms of Big O stands for the number of inputs into an element or numbers etc.
+// Worst case is O (n2) this is slow
