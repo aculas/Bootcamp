@@ -16,8 +16,8 @@ const greetings = [holler, whisper];
 
 // callback function
 
-setTimeout(greetings (), 4000);
+setTimeout(greetings,  4000);
 
 function doGreet(a,b, greetings) {
-    greetings(a, b)
+    return greetings(a, b)
 }
