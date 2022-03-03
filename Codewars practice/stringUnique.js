@@ -7,7 +7,7 @@ function areUnique(str) {
   return true;
 }
 
-// antoher solution
+// another solution
 
 function areUniqueTwo(str) {
   // Set an empty object
