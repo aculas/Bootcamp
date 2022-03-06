@@ -33,3 +33,5 @@ function stringIsUnique(input) {
   }
   return true;
 }
+
+console.log(areUniqueTwo("hello"));

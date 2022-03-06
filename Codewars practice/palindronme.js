@@ -1,5 +1,6 @@
 // One type of solution
 function isPalindrome(str) {
+  str = str.toString().toLowerCase();
   let len = str.length;
   for (let i = 0; i < len / 2; i++)
     if (str[i] !== str[len - 1 - i]) {
@@ -11,7 +12,8 @@ function isPalindrome(str) {
 // second solution using a while loop
 
 function isPalindrome2(str) {
-  str = str.toLowerCase();
+  // converts any non string to a string and then converts to lowercase
+  str = str.str.toString().toLowerCase();
   // Starting value
   let a = 0;
   let b = str.length;
