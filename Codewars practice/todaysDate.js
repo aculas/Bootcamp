@@ -15,6 +15,6 @@ function isToday(date) {
 
 // other attempt
 function isToday(date) {
-  var today = new Date();
+  let today = new Date();
   return date.toDateString() == today.toDateString();
 }
