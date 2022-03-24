@@ -14,6 +14,7 @@ function palindrome(str) {
   str = str.toLowerCase().replace(re, "");
   let len = str.length;
   for (let i = 0; i < len / 2; i++) {
+    // This means a string of length 10, has chars between 0-9, not 1-10. The -i is what the value of i is at the time.
     if (str[i] !== str[len - 1 - i]) {
       return false;
     }
