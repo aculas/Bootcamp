@@ -9,15 +9,14 @@ function holler() {
 const whisper = function () {
   // this function has no name and is stored in a variable
   console.log("shh, they are watching");
-
-
+};
 //   functions in an array
 const greetings = [holler, whisper];
 
 // callback function
 
-setTimeout(greetings,  4000);
+setTimeout(greetings, 4000);
 
-function doGreet(a,b, greetings) {
-    return greetings(a, b)
+function doGreet(a, b, greetings) {
+  return greetings(a, b);
 }
