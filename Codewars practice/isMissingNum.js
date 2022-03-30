@@ -24,7 +24,7 @@ function getMissingNo(a) {
   }
   return total;
 }
-
+// This function takes an array and determines if the number appears in the array at least 2 times
 function numArray(arr, num) {
   let count = 0;
   for (i = 0; i < arr.length; i++) {
