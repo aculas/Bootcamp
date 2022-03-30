@@ -24,3 +24,16 @@ function getMissingNo(a) {
   }
   return total;
 }
+
+function numArray(arr, num) {
+  let count = 0;
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === num) {
+      count++;
+    }
+    if (count == 2) {
+      return true;
+    }
+    return false;
+  }
+}
