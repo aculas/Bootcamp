@@ -36,6 +36,22 @@ function camelCase(str) {
   return result;
 }
 
-function snakeToCamel(str) {
-  return str;
+
+
+function convert(str) {
+  let n = str.length;
+  let str1 = "";
+  for ( i = 0; i < n; i++){
+    // concerts space to underscore
+    if(str[i]== ' '){
+      str1 = str1 + "_";
+    }else {
+     str1 = str1 + (str[i].toLowerCase();
+    }
+  }
+  return str1;
 }
+ /*
+ Input  : I got intern at geeksforgeeks
+Output : IGotInternAtGeeksforgeeks
+ */
