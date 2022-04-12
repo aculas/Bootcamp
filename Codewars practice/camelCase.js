@@ -38,6 +38,8 @@ function camelCase(str) {
 
 
 
+
+
 function convert(str) {
   let n = str.length;
   let str1 = "";
@@ -45,11 +47,10 @@ function convert(str) {
     // concerts space to underscore
     if(str[i]== ' '){
       str1 = str1 + "_";
-    }else {
-     str1 = str1 + (str[i].toLowerCase();
+    } else {
+     str1 = str1 + (str[i].toLowerCase());
     }
-  }
-  return str1;
+    return str1;
 }
  /*
  Input  : I got intern at geeksforgeeks
