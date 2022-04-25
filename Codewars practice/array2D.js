@@ -21,7 +21,7 @@ function minimumDistance(area) {
     let myObj = {};
     //   Nested loop that loops over the elements inside the first array
     for (let j = 0; j < area[i].length; j++) {
-      // sets the values
+      // sets the values to be equal of area
       myObj[distance[i][j][0]] = area[i][j][1];
       distance.push(myObj);
     }
