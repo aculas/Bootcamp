@@ -1,0 +1,4 @@
+{
+    "js/ts.implicitProje}ctConfig.experimentalDecorators": true
+}
+//This setting needs to be inside every new project to get rid of the waring found using compnenets
