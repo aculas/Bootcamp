@@ -2,15 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {HelloWorldComponent} from './hello-world.component'
+import {HelloWorldComponent} from './parent/hello-world.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component'
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloWorldComponent
+    HelloWorldComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
