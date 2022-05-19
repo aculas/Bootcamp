@@ -11,11 +11,14 @@ export default class PersonInput extends React.Component {
   };
 
   handlesSubmit = (event) => {
+    //   Prevents the browser from reloading page
     event.preventDefault();
+    // Makes a new user using the name property
     const user = {
       name: this.state.name,
     };
     // This is where you want to put any information you want to pass to your database
+    //Fot a put request is similar .put(`https://jsonplaceholder.typicode.com/users`, { user })
     axios
       .post(`https://jsonplaceholder.typicode.com/users`, { user })
       .then((res) => {
@@ -26,11 +29,12 @@ export default class PersonInput extends React.Component {
   // This renders a form and tracks changes for inputs
   render() {
     return (
-      <form>
+      <form onSubmit={this.handlesSubmit}>
         <label>
           Person Name:
-          <input type="text" name="name" />
+          <input type="text" name="name" onChange={this.handleChange} />
         </label>
+        <button type="submit">Add</button>
       </form>
     );
   }
