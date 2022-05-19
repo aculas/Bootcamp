@@ -19,8 +19,12 @@ export default class PersonInput extends React.Component {
     };
     // This is where you want to put any information you want to pass to your database
     //Fot a put request is similar .put(`https://jsonplaceholder.typicode.com/users`, { user })
+    /*For a delete request we would need to delete we need to change name at stat to id and pass 0
+    Then we would make the axios.delete(`https://jsonplaceholder.typicode.com/users/${this.state.id}`
+    and change button to say delete and the intput type to number and name = id
+    */
     axios
-      .post(`https://jsonplaceholder.typicode.com/users`, { user })
+      .post(`https://jsonplaceholder.typicode.com/users/`, { user })
       .then((res) => {
         console.log(res);
         console.log(res.data);
